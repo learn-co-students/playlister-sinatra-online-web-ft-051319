@@ -1,0 +1,19 @@
+<html>
+
+<!-- <p>Successfully created song.</p> -->
+<!-- <p>Successfully updated song.</p> -->
+
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
+<p>Song: <%=@song.name%></p>
+<p>Artist: <%=@song.artist.name%></p>
+
+<a href='/artists/<%=@song.artist.slug%>'>To view artist, click here</a>
+<p>To view genres, follow the links below:</p>
+<%@song.genres.each do |genre|%>
+  <a href='/genres/<%=genre.slug%>'><%=genre.name%></a>
+<%end%>
+
+</html>
